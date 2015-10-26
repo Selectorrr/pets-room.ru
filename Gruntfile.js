@@ -52,12 +52,12 @@ module.exports = function (grunt) {
             app: {
                 src: ['src/main/webapp/index.html'],
                 exclude: [
-                    /angular-i18n/  // localizations are loaded dynamically
+                    /angular-i18n/, /react/  // localizations are loaded dynamically
                 ]
             },
             test: {
                 src: 'src/test/javascript/karma.conf.js',
-                exclude: [/angular-i18n/, /angular-scenario/],
+                exclude: [/angular-i18n/, /angular-scenario/, /react/],
                 ignorePath: /\.\.\/\.\.\//, // remove ../../ from paths of injected javascripts
                 devDependencies: true,
                 fileTypes: {
@@ -221,18 +221,18 @@ module.exports = function (grunt) {
         },
         // Put files not handled in other tasks here
         copy: {
-            fonts: {
-                files: [{
-                    expand: true,
-                    dot: true,
-                    flatten: true,
-                    cwd: 'src/main/webapp',
-                    dest: '<%= yeoman.dist %>/assets/fonts',
-                    src: [
-                      'bower_components/bootstrap/fonts/*.*'
-                    ]
-                }]
-            },
+            //fonts: {
+            //    files: [{
+            //        expand: true,
+            //        dot: true,
+            //        flatten: true,
+            //        cwd: 'src/main/webapp',
+            //        dest: '<%= yeoman.dist %>/assets/fonts',
+            //        src: [
+            //          'bower_components/bootstrap/fonts/*.*'
+            //        ]
+            //    }]
+            //},
             dist: {
                 files: [{
                     expand: true,
@@ -318,6 +318,20 @@ module.exports = function (grunt) {
                     VERSION: parseVersionFromPomXml()
                 }
             }
+        },
+        babel: {
+            build: {
+                files: [
+                    {
+                        expand: true,     // Enable dynamic expansion.
+                        cwd: 'src/main/jsx',      // Src matches are relative to this path.
+                        src: ['**/*.jsx'], // Actual pattern(s) to match.
+                        dest: 'src/main/webapp/scripts/app',   // Destination path prefix.
+                        ext: '.jsx.js',   // Dest filepaths will have this extension.
+                        extDot: 'first'   // Extensions in filenames begin after the first dot
+                    }
+                ]
+            }
         }
     });
 
@@ -350,7 +364,7 @@ module.exports = function (grunt) {
         'imagemin',
         'svgmin',
         'concat',
-        'copy:fonts',
+        //'copy:fonts',
         'copy:dist',
         'ngAnnotate',
         'cssmin',
