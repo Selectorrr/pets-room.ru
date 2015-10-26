@@ -1,0 +1,8 @@
+jhipster-prod-mongodb:
+  container_name: petsroom-prod-mongodb
+  image: mongo
+  # volumes:
+  # - ~/volumes/jhipster/petsroom/prod-mongodb/:/data/db/
+  ports:
+  - "27017:27017"
+
