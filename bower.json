@@ -21,7 +21,8 @@
     "sockjs-client": "1.0.3",
     "stomp-websocket": "2.3.4",
     "swagger-ui": "2.1.2",
-    "ngReact": "~0.2.0"
+    "ngReact": "0.2.0",
+    "960-grid-system": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.4.5",

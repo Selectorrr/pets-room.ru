@@ -6,7 +6,19 @@ angular.module('petsroomApp').directive('mainPage', function (reactDirective) {
             //lname: React.PropTypes.string.isRequired
         },
         render: function () {
-            return <RaisedButton label="Primary" primary={true} />;
+            return <div className="container_12">
+                <div className="grid_12">
+                    <p>
+                        <RaisedButton label="Primary" primary={true} />
+                    </p>
+                </div>
+                <div className="clear"></div>
+                <div className="grid_12">
+                    <p>
+                        <RaisedButton label="Primary" primary={true} />
+                    </p>
+                </div>
+            </div>;
         }
     }))
 });
