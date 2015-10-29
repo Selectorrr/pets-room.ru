@@ -5,6 +5,9 @@ angular.module('petsroomApp')
         $scope.isAuthenticated = Principal.isAuthenticated;
         $scope.$state = $state;
         $scope.inProduction = ENV === 'prod';
+        //$scope.props = {
+        //    state: $state
+        //};
 
         $scope.logout = function () {
             Auth.logout();

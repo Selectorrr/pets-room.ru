@@ -6,19 +6,17 @@ angular.module('petsroomApp').directive('navBar', function (reactDirective) {
     var MenuItem = MUI.MenuItem;
     var MoreVertIcon = MUI.MoreVertIcon;
     return reactDirective(React.createClass({
+        propTypes: {
+            state: React.PropTypes.object.isRequired
+        },
+        onLogoClick: function(){
+            this.props.state.go("home");
+        },
         render: function () {
+            var that = this;
             return <AppBar
-                title="Title"
-                iconElementLeft={<IconButton>x</IconButton>}
-                iconElementRight={
-    <IconMenu iconButtonElement={
-      <IconButton>o</IconButton>
-    }>
-      <MenuItem primaryText="Refresh" />
-      <MenuItem primaryText="Help" />
-      <MenuItem primaryText="Sign out" />
-    </IconMenu>
-} />
+                onLeftIconButtonTouchTap={that.onLogoClick}
+                title="pets-room.ru"/>
         }
     }))
 });
