@@ -40,10 +40,15 @@ module.exports = function (grunt) {
                 files: ['bower.json'],
                 tasks: ['wiredep']
             },
-            ngconstant: {
-                files: ['Gruntfile.js', 'pom.xml'],
-                tasks: ['ngconstant:dev']
+            babel:{
+                files: ['**/*.jsx'],
+                tasks: ['babel:build']
             }
+            //,
+            //ngconstant: {
+            //    files: ['Gruntfile.js', 'pom.xml'],
+                //tasks: ['ngconstant:dev']
+            //}
         },
         autoprefixer: {
             // src and dest is configured in a subtask called "generated" by usemin
